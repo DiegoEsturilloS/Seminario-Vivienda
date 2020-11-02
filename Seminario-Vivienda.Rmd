@@ -1,0 +1,63 @@
+---
+title: "Déficit habitacional y políticas públicas"
+author: "Diego Esturillo Sáez"
+date:  "30 de octubre de 2020"
+bibliography: input/bib/vivienda.bib
+link-citations: yes
+csl: input/bib/apa.csl
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	message = FALSE,
+	warning = FALSE,
+	cache = FALSE)
+ 
+
+Sys.setlocale("LC_ALL","ES_ES.UTF-8")
+options(scipen = 999)
+getwd()
+```
+
+```{r Cargar librerias, include=FALSE}
+# Cargar librerías
+library(pacman)
+pacman::p_load(ggplot2,plotly, dplyr, stargazer, texreg, corrplot, haven, sjlabelled, psych, writexl, ggmosaic, DescTools, lme4, lmerTest, citr)
+pacman::p_load(kableExtra, pander, descr, expss,car, foreign,ggcorrplot, reghelper, openxlsx, summarytools, rmarkdown, sessioninfo)
+```
+<style type="text/css">
+
+h1.title {
+  font-size: 38px;
+  color: Black;
+  text-align: center;
+}
+h4.author { /* Header 4 - and the author and data headers use this too  */
+    font-size: 18px;
+  
+  color: Black;
+  text-align: center;
+}
+h4.date { /* Header 4 - and the author and data headers use this too  */
+  font-size: 18px;
+  
+  color: Black;
+  text-align: center;
+}
+</style>
+
+
+# Índice
+- [Introducción](#tit1)
+- [Pregunta y objetivos](#tit2)
+- [Datos y metodología](#tit3)
+- [Referencias](#tit4)
+
+# Introducción {#tit1}
+Uno de los mayores desafíos en materia de políticas habitacionales en las últimas décadas ha sido la persistencia de familias que forman parte del déficit habitacional. Este se caracteriza, por un lado, en la precariedad material de las viviendas y, por otra, en la cohabitación (allegamiento) de distintas familias en una misma vivienda (García de Freitas et. al, 2013).
+
+A pesar de los esfuerzos en términos de producción de unidades habitacionales por parte del Ministerio de Vivivenda y Urbanismo, sólo se ha logrado reducir este déficit en un 30,6% entre los años 1996 y 2015 (Fundación Vivienda, 2017). Si bien existe esta reducción, para el año 2017 se vuelve a producir un aumento, debido principalmente a un incremento de la población en campamentos (Campos, 2017), población de origen migrante  y el encarecimiento de los costos para desarrollos de proyectos habitacionales (Sanhueza y López, 2016; Fundación Vivienda, 2017). 
+
+Las políticas habitacionales, como se mencionó previamente, han sido consideradas exitosas en la medida en que han podido solventar de cierto modo este problema de déficit habitacional. Una importante parte de los sectores más vulnerables ha podido acceder a una vivienda, incluso cumplir el sueño de la "casa propia", ya sea mediante subsidios, créditos hipotecarios o la combinación de ambos. Instaurada a comienzos de los años ochenta
+durante la dictadura, la política de “subsidio habitacional” (voucher que subsidia la demanda de los hogares) ha tenido gran productividad y ha sido mantenida y mejorada por los gobiernos posteriores (Sabatini & Wormald, 2013).
