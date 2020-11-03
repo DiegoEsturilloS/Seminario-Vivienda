@@ -14,6 +14,9 @@ This repository contains all the documents for the development of the undergradu
 ## Important considerations:
 1. The database used for this work is CASEN 2017. This cannot be uploaded to the repository because it exceeds the maximum weight. 
 It can be downloaded from [here](http://observatorio.ministeriodesarrollosocial.gob.cl/casen-multidimensional/casen/docs/casen_2017_spss.rar) in SPSS format.
+
 2.The work is reproducible under the structure of the [IPO](https://juancarloscastillo.github.io/ipo/) protocol.
+
 3.In development the web page of the paper.
+
 4.The project link in [OSF](osf.io) is coming soon
