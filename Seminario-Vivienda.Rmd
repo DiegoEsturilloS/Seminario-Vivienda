@@ -1,7 +1,7 @@
 ---
-title: "Déficit habitacional y políticas públicas"
+title: "Segregación residencial, déficit habitacional y políticas públicas: análisis multinivel"
 author: "Diego Esturillo Sáez"
-date:  "30 de octubre de 2020"
+date:  "6 de noviembre de 2020"
 bibliography: input/bib/vivienda.bib
 link-citations: yes
 csl: input/bib/apa.csl
@@ -60,4 +60,19 @@ Uno de los mayores desafíos en materia de políticas habitacionales en las últ
 A pesar de los esfuerzos en términos de producción de unidades habitacionales por parte del Ministerio de Vivivenda y Urbanismo, sólo se ha logrado reducir este déficit en un 30,6% entre los años 1996 y 2015 (Fundación Vivienda, 2017). Si bien existe esta reducción, para el año 2017 se vuelve a producir un aumento, debido principalmente a un incremento de la población en campamentos (Campos, 2017), población de origen migrante  y el encarecimiento de los costos para desarrollos de proyectos habitacionales (Sanhueza y López, 2016; Fundación Vivienda, 2017). 
 
 Las políticas habitacionales, como se mencionó previamente, han sido consideradas exitosas en la medida en que han podido solventar de cierto modo este problema de déficit habitacional. Una importante parte de los sectores más vulnerables ha podido acceder a una vivienda, incluso cumplir el sueño de la "casa propia", ya sea mediante subsidios, créditos hipotecarios o la combinación de ambos. Instaurada a comienzos de los años ochenta
-durante la dictadura, la política de “subsidio habitacional” (voucher que subsidia la demanda de los hogares) ha tenido gran productividad y ha sido mantenida y mejorada por los gobiernos posteriores (Sabatini & Wormald, 2013).
+durante la dictadura, la política de “subsidio habitacional” (voucher que subsidia la demanda de los hogares) ha tenido gran productividad y ha sido mantenida y mejorada por los gobiernos posteriores (Sabatini & Wormald, 2013). Estas políticas habitacionales operan bajo la lógica de la focalización, la cual ha ido contribuyendo, dentro de tantas problemáticas, a la segregación residencial. "Una política habitacional que no es capaz de generar stock a una velocidad mayor que la tasa de generación de nuevos requerimientos de vivienda no puede hacer mucho para aplacar dicho fenómeno, pero tampoco se debe pensar en la producción masiva de viviendas sin tomar en cuenta el estándar habitacional y urbano" (Fundación Vivienda, 2017, p.23).
+
+Como señalan Sabatini y Wormald (2013) "al circunscribir con celo partidas específicas de la inversión social (en este caso, el subsidio habitacional) a los hogares pobres a los que estaba destinada, la política habitacional favorece la
+construcción de complejos de vivienda socialmente uniformes" (p.17).  Este es uno de los aspectos más dañinos de la segregación residencial, ya que termina por aislar a quienes habitan estos complejos. Se dificulta la interacción entre personas de distinto origen en espacios públicos.
+
+Esto se puede entrever en la medida en que el déficit habitacional, sobre todo en términos de cohabitación (allegamiento), se concentra principalmente en las comunas periféricas y pericentrales del Área Metropolitana de Santiago (AMS) tales como Huechuraba, Cerro Navia o La Pintana, además de una notoria ausencia de las comunas del sector oriente (Fundación Vivienda, 2017). Las otras regiones del país no se ven exentas de este patrón, concentrando un 62,1% del déficit habitacional (ya sea por precariedad material o por allegamiento).
+
+
+
+
+
+
+# Preguntas y objetivos {#tit2}
+# Datos y metodología {#tit3}
+# Referencias {#tit4}
+
