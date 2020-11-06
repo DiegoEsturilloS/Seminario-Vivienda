@@ -1,5 +1,5 @@
 ---
-title: "Segregación residencial, déficit habitacional y políticas públicas: análisis multinivel"
+title: "Segregación residencial, déficit habitacional y políticas públicas"
 author: "Diego Esturillo Sáez"
 date:  "6 de noviembre de 2020"
 bibliography: input/bib/vivienda.bib
@@ -57,22 +57,47 @@ h4.date { /* Header 4 - and the author and data headers use this too  */
 # Introducción {#tit1}
 Uno de los mayores desafíos en materia de políticas habitacionales en las últimas décadas ha sido la persistencia de familias que forman parte del déficit habitacional. Este se caracteriza, por un lado, en la precariedad material de las viviendas y, por otra, en la cohabitación (allegamiento) de distintas familias en una misma vivienda (García de Freitas et. al, 2013).
 
-A pesar de los esfuerzos en términos de producción de unidades habitacionales por parte del Ministerio de Vivivenda y Urbanismo, sólo se ha logrado reducir este déficit en un 30,6% entre los años 1996 y 2015 (Fundación Vivienda, 2017). Si bien existe esta reducción, para el año 2017 se vuelve a producir un aumento, debido principalmente a un incremento de la población en campamentos (Campos, 2017), población de origen migrante  y el encarecimiento de los costos para desarrollos de proyectos habitacionales (Sanhueza y López, 2016; Fundación Vivienda, 2017). 
+A pesar de los esfuerzos en términos de producción de unidades habitacionales por parte del Ministerio de Vivivenda y Urbanismo, sólo se ha logrado reducir este déficit en un 30,6% entre los años 1996 y 2015 (Fundación Vivienda, 2017). Si bien existe esta reducción, para el año 2017 se vuelve a producir un aumento, debido principalmente a un incremento de la población en campamentos (Campos, 2017), población de origen migrante y el encarecimiento de los costos para desarrollos de proyectos habitacionales (Sanhueza y López, 2016; Fundación Vivienda, 2017). 
 
 Las políticas habitacionales, como se mencionó previamente, han sido consideradas exitosas en la medida en que han podido solventar de cierto modo este problema de déficit habitacional. Una importante parte de los sectores más vulnerables ha podido acceder a una vivienda, incluso cumplir el sueño de la "casa propia", ya sea mediante subsidios, créditos hipotecarios o la combinación de ambos. Instaurada a comienzos de los años ochenta
-durante la dictadura, la política de “subsidio habitacional” (voucher que subsidia la demanda de los hogares) ha tenido gran productividad y ha sido mantenida y mejorada por los gobiernos posteriores (Sabatini & Wormald, 2013). Estas políticas habitacionales operan bajo la lógica de la focalización, la cual ha ido contribuyendo, dentro de tantas problemáticas, a la segregación residencial. "Una política habitacional que no es capaz de generar stock a una velocidad mayor que la tasa de generación de nuevos requerimientos de vivienda no puede hacer mucho para aplacar dicho fenómeno, pero tampoco se debe pensar en la producción masiva de viviendas sin tomar en cuenta el estándar habitacional y urbano" (Fundación Vivienda, 2017, p.23).
+durante la dictadura, la política de “subsidio habitacional” (voucher que subsidia la demanda de los hogares) ha tenido gran productividad y ha sido mantenida y mejorada por los gobiernos posteriores (Sabatini y Wormald, 2013). Estas políticas habitacionales operan bajo la lógica de la focalización, la cual ha ido contribuyendo, dentro de tantas problemáticas, a la segregación residencial. "Una política habitacional que no es capaz de generar stock a una velocidad mayor que la tasa de generación de nuevos requerimientos de vivienda no puede hacer mucho para aplacar dicho fenómeno, pero tampoco se debe pensar en la producción masiva de viviendas sin tomar en cuenta el estándar habitacional y urbano" (Fundación Vivienda, 2017, p.23).
 
 Como señalan Sabatini y Wormald (2013) "al circunscribir con celo partidas específicas de la inversión social (en este caso, el subsidio habitacional) a los hogares pobres a los que estaba destinada, la política habitacional favorece la
 construcción de complejos de vivienda socialmente uniformes" (p.17).  Este es uno de los aspectos más dañinos de la segregación residencial, ya que termina por aislar a quienes habitan estos complejos. Se dificulta la interacción entre personas de distinto origen en espacios públicos.
 
 Esto se puede entrever en la medida en que el déficit habitacional, sobre todo en términos de cohabitación (allegamiento), se concentra principalmente en las comunas periféricas y pericentrales del Área Metropolitana de Santiago (AMS) tales como Huechuraba, Cerro Navia o La Pintana, además de una notoria ausencia de las comunas del sector oriente (Fundación Vivienda, 2017). Las otras regiones del país no se ven exentas de este patrón, concentrando un 62,1% del déficit habitacional (ya sea por precariedad material o por allegamiento).
 
+La política de subsidios habitacionales, pese a su éxito en términos cuantitativos, no tiene en consideración la importancia de la localización y la segregación en la profundización de la pobreza y la acentuación de las diferencias sociales (Sabatini y Wormald, 2013). Se reducen las oportunidades de acceso a trabajos y a servicios de salud y educación, además de favorecer procesos de desintegración social y estigmas territoriales.
+
+Como se mostró previamente, de 2015 a 2017 hubo un aumento del déficit habitacional, principalmente por un gran aumento de familias viviendo de allegadas. Ahondando en algunos de los factores que propician este aumento, se encuentra el aumento del precio de las viviendas, de un 100% en la última década a la par que los salarios sólo aumentaron un 36% (Cámara Chilena de la Construcción, 2019). Por otra parte, un 56% de las familias no tiene las condiciones mínimas para acceder a un crédito hipotecario (íbidem). 
+
+Frente a estas circunstancias que dificultan el acceso a la vivienda, es que se pretende indagar acerca de cuáles son los factores que determinan que una familia se encuentre en situación de déficit habitacional, ya sea por precariedad material o por allegamiento. Se centrará principalmente en el impacto de los subsidios habitacionales (de compra) y de otro tipo de aportes estatales, como créditos hipotecarios. Con ello, se buscará ver cómo la política habitacional, pese a su éxito cuantitativo a través de los años, ha ido construyendo las ciudades, las localidades, los distintos barrios de modo tal que se expresa un fenómeno de segregación residencial, situación que no es tomada en cuenta por y que sería contraproducente a la política misma. 
 
 
+# Objetivos de investigación {#tit2}
+
+Determinar el efecto de los subsidios habitacionales de compra y créditos hipotecarios otorgados por el Estado en la posibilidad de déficit habitacional por precariedad material.
+
+Determinar el efecto de los subsidios habitacionales de compra y créditos hipotecarios otorgados por el Estado en la posibilidad de déficit habitacional por allegamiento.
 
 
-
-# Preguntas y objetivos {#tit2}
 # Datos y metodología {#tit3}
+
+Para llevar a cabo esta investigación, se utilizarán datos de la Encuesta de Caracterización Socioeconómica Nacional (CASEN) correspondiente al año 2017. Esta es desarrollada de manera bienal o trienal por el Ministerio de Desarrollo Social. El diseño muestral de la encuesta es probabilístico, estratificado por conglomerados y en múltiples etapas.
+Se seleccionarán los hogares que hayan accedido a la compra de su vivienda mediante un subsidio o un crédito hipotecario entregado por el Estado. Además, se utilizarán algunas variables de control como la edad del jefe de familia, sexo o escolaridad del mismo. Si bien no posee representatividad en todas las comunas, se considerarán estas como variable cluster.
+
 # Referencias {#tit4}
+
+Cámara Chilena de la Construcción. (2019). Déficit habitacional: un desafío pendiente.
+
+Campos, K. (2017). Inmigración en campamentos, percepciones sobre la vida en asentamientos precarios de Copiapó. Revista CIS, N° 22, pp.109-129.
+
+Fundación Vivienda. (2017). Déficit habitacional cuantitativo. Informe 4 Déficit habitacional y Censo.
+
+García de Freitas et. al. (2013). Chile: Subsidios, crédito y déficit habitacional. Revista CEPAL N°110. Agosto 2013. pp. 199-221.
+
+Sabatini, F. y Wormald, G. (2013). Segregación de la vivienda social: reducción de oportunidades, pérdida de cohesión. En F. Sabatini, G. Wormald y A. Rasse (Eds.), Segregación de la vivienda social: ocho
+conjuntos en Santiago, Concepción y Talca (págs. 12-31). Santiago, Chile: Colección Estudios Urbanos UC. 
+
+Sanhueza, C. y López, E. (2016). Metodología de caculo de la renta del suelo mediante análisis del impacto de cambios regulatorios y en infraestructura: caso Santiago-Chile. Congreso Internacional Consteted_Cities, Madrid, España.
 
