@@ -90,8 +90,8 @@ Por otro lado, se pretende investigar la relación entre la segregación residen
 
 Se ha hecho mención a la incidencia que han tenido las distintas municipalidades en la gestión de las planificaciones urbanas/territoriales, por lo que también se pretende añadir un componente contextual al estudio de la segregación residencial y el déficit habitacional. 
 
-Con esto, se han gestado las siguientes preguntas que guiarán la investigación en su conjunto: ¿De qué manera inciden las políticas habitacionales en el desarrollo del déficit habitacional en Chile? 
-Como segunda pregunta: ¿Cómo se relacionan las problemáticas de la segregación residencial y el déficit habitacional mediadas por el impacto de las políticas habitacionales?
+Con esto, se han gestado las siguientes preguntas que guiarán la investigación en su conjunto: ¿De qué manera inciden las políticas habitacionales en el desarrollo del déficit habitacional en las distintas comunas de Chile? 
+Como segunda pregunta: ¿Cómo se relacionan las problemáticas de la segregación residencial y el déficit habitacional mediadas por el impacto de las políticas habitacionales en las distintas comunas de Chile?
 
 Con estas dos pretensiones y las preguntas puestas en cuestión, este estudio busca, en primer lugar, aportar nueva evidencia empírica en torno a estos fenómenos, a saber, la segregación residencial y el déficit habitacional, considerando el impacto que han tenido las políticas habitacionales en ellos. En segundo lugar, siendo un aporte más novedoso, es revisar y trabajar en torno a las metodologías e instrumentos que miden el déficit habitacional. Esto debido a que las mismas fuentes institucionales (MINVU, 2020) mencionan que, por ejemplo, debido a que el Censo 2017 no incluía todas las variables que tradicionalmente se incluyen en el índice, han tenido que ajustarlo para crear su instrumento. En base a esto, señalan que su trabajo no incorpora las variables relacionadas al índice de saneamiento (sistema de distribución de agua y de eliminación de excretas), pero que no influyen en el cálculo del déficit habitacional cuantitativo, ya que estas pertenecen al déficit habitacional cualitativo (referente a la materialidad de las viviendas),  medido por el Índice de Calidad Global de la Vivienda (ICGV). Por ello, trabajar alrededor de estos instrumentos permitirá incluir, o retirar eventualmente, variables que inciden en la construcción del índice y el cálculo del déficit habitacional, haciendo más robusto el instrumento.
 
@@ -100,14 +100,14 @@ Finalmente, aportar desde la sociología una posición crítica frente al susten
 # **Objetivos e hipótesis**{#tit2}
 ## **I. Objetivos:**
 ### **Objetivos generales:**
-1. Determinar el efecto de las políticas habitacionales en el desarrollo del déficit habitacional en Chile.
+1. Determinar el efecto de las políticas habitacionales en el desarrollo del déficit habitacional en las distintas comunas de Chile.
 
-2. Determinar la relación entre la segregación residencial y el déficit habitacional en Chile mediados por el impacto de las políticas habitacionales.
+2. Determinar la relación entre la segregación residencial y el déficit habitacional en Chile mediados por el impacto de las políticas habitacionales en las distintas comunas de Chile.
 
 ## **II. Hipótesis**
 ### **Hipótesis general:**
-La principal hipótesis en torno al primer objetivo señala que las políticas públicas generan un efecto negativo en el desarrollo del déficit habitacional en Chile. Es decir, pese a haber reducido el porcentaje de viviendas en situación de déficit habitacional décadas atrás, en la actualidad generan bien un estancamiento o un aumento en esta problemática, debido a su enfoque primordialmente cuantitativo relacionado con la construcción de viviendas.
-Por otra parte, la hipótesis relacionada con el segundo objetivo muestra que ambos fenómenos se ven relacionados de manera conjunta en función del impacto de las políticas habitacionales. De este modo, tanto la segregación residencial como el déficit habitacional aumentarían en relación con el desarrollo de las políticas habitacionales, en tanto esta última genera un efecto negativo.
+La principal hipótesis en torno al primer objetivo señala que las políticas públicas generan un efecto negativo en el desarrollo del déficit habitacional en Chile. Es decir, pese a haber reducido el porcentaje de viviendas en situación de déficit habitacional décadas atrás, en la actualidad generan bien un estancamiento o un aumento en esta problemática, debido a su enfoque primordialmente cuantitativo relacionado con la construcción de viviendas. En ese sentido, las comunas más afectadas por este problema serán las comunas periféricas y pericentrales de las regiones del país.
+Por otra parte, la hipótesis relacionada con el segundo objetivo muestra que ambos fenómenos se ven relacionados de manera conjunta en función del impacto de las políticas habitacionales. De este modo, tanto la segregación residencial como el déficit habitacional aumentarían en relación con el desarrollo de las políticas habitacionales, en tanto esta última genera un efecto negativo. El mayor impacto se verá en las comunas periféricas y pericentrales de las distintas regiones del país.
 
 # **Datos y metodología** {#tit3}
 
