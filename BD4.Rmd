@@ -1,0 +1,177 @@
+---
+title: "Data Preparation"
+author: "Diego Esturillo Sáez"
+date: "15-06-2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+pacman::p_load(ggplot2,plotly, dplyr, stargazer, texreg, corrplot, haven, sjlabelled, psych, writexl, ggmosaic, DescTools, lme4, lmerTest, summarytools)
+pacman::p_load(kableExtra, pander, descr, expss,car, foreign,ggcorrplot, reghelper, openxlsx, sessioninfo)
+```
+
+```{r setup, include=FALSE}
+BD <- read_sav("input/data/casen_2017.sav")
+```
+
+```{r setup, include=FALSE}
+
+BD2=select(BD,
+          
+           alleg_exter=iae,
+           alleg_inter=iai,
+           hacinamiento=hacinamiento,
+        
+           
+           nac = r1a, 
+           nac_cual =r1a_esp, 
+           
+      
+           educ_anos = esc, 
+           sexo, 
+           edad=edad,
+           ano_llegada = r1c_año, 
+           ingresos = ytot,
+           num_per=tot_per,
+           
+          tipo_casa = v1,
+           Mt2_vivienda = v12,
+           dist_agua = v22,
+           dist_extr = v23,
+           dist_ener = v24,
+           cant_dorm = v27a,
+           cant_banos = v27b,
+          hogar_viv = v28,
+          comp_viv = v31,
+          cambio_viv1 = v32,
+          nuc_hogar = v33,
+          comp_nuc = v34,
+          cambio_viv2 =v35,
+          
+          provincia,
+          comuna,
+          region)
+```
+
+```{r setup, include=FALSE}
+options(scipen = 999) 
+BD3 <- BD2 %>% filter(nac %in% 3)
+```
+
+```{r}
+BD3$sexo <- as.numeric(BD3$sexo)
+BD3$ano_llegada <- as.numeric(BD3$ano_llegada)
+BD3$Mt2_vivienda <- as.numeric(BD3$Mt2_vivienda)
+BD3$cant_dorm <- as.numeric(BD3$cant_dorm)
+BD3$cant_banos <- as.numeric(BD3$cant_banos)
+```
+
+```{r}
+BD3$nac_cual[BD3$nac_cual=="ALEMANIA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="CROACIA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="ESPAÑA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="FRANCIA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="HOLANDA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="ITALIA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="NORUEGA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="PORTUGAL"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="REINO UNIDO"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="REPÚBLICA CHECA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="RUSIA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="SUECIA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="TURQUÍA"] <-"EUROPA"
+BD3$nac_cual[BD3$nac_cual=="CANADÁ"] <-"NORTEAMERICA"
+BD3$nac_cual[BD3$nac_cual=="MÉXICO"] <-"NORTEAMERICA"
+BD3$nac_cual[BD3$nac_cual=="ESTADOS UNIDOS"] <-"NORTEAMERICA"
+BD3$nac_cual[BD3$nac_cual=="CUBA"] <-"EL CARIBE"
+BD3$nac_cual[BD3$nac_cual=="EL SALVADOR"] <-"EL CARIBE"
+BD3$nac_cual[BD3$nac_cual=="PUERTO RICO"] <-"EL CARIBE"
+BD3$nac_cual[BD3$nac_cual=="REPÚBLICA DOMINICANA"] <-"EL CARIBE"
+BD3$nac_cual[BD3$nac_cual=="HAITÍ"] <-"EL CARIBE"
+BD3$nac_cual[BD3$nac_cual=="HONDURAS"] <-"CENTROAMERICA"
+BD3$nac_cual[BD3$nac_cual=="COSTA RICA"] <-"CENTROAMERICA"
+BD3$nac_cual[BD3$nac_cual=="NICARAGUA"] <-"CENTROAMERICA"
+BD3$nac_cual[BD3$nac_cual=="GUATEMALA"] <-"CENTROAMERICA"
+BD3$nac_cual[BD3$nac_cual=="CHINA"] <-"ASIA"
+BD3$nac_cual[BD3$nac_cual=="JAPÓN"] <-"ASIA"
+BD3$nac_cual[BD3$nac_cual=="INDIA"] <-"ASIA"
+BD3$nac_cual[BD3$nac_cual=="ISRAEL"] <-"ASIA"
+BD3$nac_cual[BD3$nac_cual=="INDIA"] <-"ASIA"
+BD3$nac_cual[BD3$nac_cual=="SIRIA"] <-"ASIA"
+BD3$nac_cual[BD3$nac_cual=="PAKISTÁN"] <-"ASIA"
+BD3$nac_cual[BD3$nac_cual=="PALESTINA"] <-"ASIA"
+BD3$nac_cual[BD3$nac_cual=="COREA DEL SUR"] <-"ASIA"
+BD3$nac_cual[BD3$nac_cual=="GHANA"] <-"AFRICA"
+BD3$nac_cual[BD3$nac_cual=="NIGERIA"] <-"AFRICA"
+BD3$nac_cual[BD3$nac_cual=="REP DEL CONGO"] <-"AFRICA"
+BD3$nac_cual[BD3$nac_cual=="SUDÁFRICA"] <-"AFRICA"
+BD3$nac_cual[BD3$nac_cual=="NO RESPONDE"] <-NA
+BD3$nac_cual[BD3$nac_cual=="NO BIEN ESPECIFICADO"] <-NA
+BD3$nac_cual[BD3$nac_cual=="PARAGUAY"] <- "SUDAMERICA"
+BD3$nac_cual[BD3$nac_cual=="ARGENTINA"] <- "SUDAMERICA"
+BD3$nac_cual[BD3$nac_cual=="BOLIVIA"] <- "SUDAMERICA"
+BD3$nac_cual[BD3$nac_cual=="PERÚ"] <- "SUDAMERICA"
+BD3$nac_cual[BD3$nac_cual=="BRASIL"] <- "SUDAMERICA"
+BD3$nac_cual[BD3$nac_cual=="COLOMBIA"] <- "SUDAMERICA"
+BD3$nac_cual[BD3$nac_cual=="ECUADOR"] <- "SUDAMERICA"
+BD3$nac_cual[BD3$nac_cual=="VENEZUELA"] <- "SUDAMERICA"
+BD3$nac_cual[BD3$nac_cual=="URUGUAY"] <- "SUDAMERICA"
+```
+
+```{r}
+BD3 <- BD3[!is.na(BD3$nac_cual),] 
+
+BD3$origen[BD3$nac_cual=="CENTROAMERICA"|BD3$nac_cual=="EL CARIBE"] <-"Centroamerica y el Caribe"
+```
+  
+```{r}
+BD3$origen[BD3$nac_cual=="EUROPA"|BD3$nac_cual=="NORTEAMERICA"|BD3$nac_cual=="ASIA"|BD3$nac_cual== "AFRICA"] <- "Extra-regional"
+BD3$origen[BD3$nac_cual=="SUDAMERICA"] <- "Region Sudamericana"
+```
+           
+```{r}
+BD3$comuna_rec <- as.factor(BD3$comuna)
+#Sexo
+BD3$sexo_rec <- as.factor(BD3$sexo)
+BD3$sexo_rec <- factor(BD3$sexo_rec, labels= c("Hombre", "Mujer"))
+```
+
+```{r}
+
+BD3$Mt2_vivienda[BD3$Mt2_vivienda==9] <-NA
+BD3$Mt2_vivienda_rec <- as.factor(BD3$Mt2_vivienda)
+BD3$Mt2_vivienda_rec <- factor(BD3$Mt2_vivienda_rec, labels = c("Menos de 30 m2",
+"De 30 a 40 m2",
+"De 41 a 60 m2",
+"De 61 a 100 m2",
+"De 101 a 150 m2",
+"Más de 150 m2"))
+```
+
+```{r}
+ingresos <- BD3 %>% data.frame() %>% select(comuna,ingresos)
+ingresos$ingresos <- as.numeric(ingresos$ingresos)
+ingresos2 <- ingresos %>%group_by(comuna)%>%summarise(mean_ing_comuna=mean(ingresos,na.rm=TRUE))
+```
+ 
+```{r}
+BD4 <- merge(BD3 ,ingresos2 ,by="comuna")
+BD4$ingresos[99] <- NA
+BD4 <- sjlabelled::remove_all_labels(BD4)
+BD4$ingresos <- as.numeric(BD4$ingresos)
+```
+
+```{r}
+sem_viv <- BD4
+```
+ 
+```{r}
+dfSummary(sem_viv, plain.ascii = FALSE)
+View(dfSummary(sem_viv, headings=FALSE))
+```
+          
+          
