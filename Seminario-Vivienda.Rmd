@@ -1,3 +1,236 @@
+<<<<<<< HEAD
+---
+title: "Determinantes sociales del allegamiento en familias migrantes en Chile"
+author: "Diego Esturillo Sáez"
+date: "09 de julio de 2021"
+output:
+  html_document: default
+  pdf_document: default
+link-citations: yes
+csl: input/bib/apa.csl
+bibliography: input/bib/vivienda.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	message = FALSE,
+	warning = FALSE,
+	cache = FALSE)
+ 
+
+Sys.setlocale("LC_ALL","ES_ES.UTF-8")
+options(scipen = 999)
+getwd()
+```
+
+```{r Cargar librerias, include=FALSE}
+# Cargar librerías
+library(pacman)
+pacman::p_load(ggplot2,plotly, dplyr, stargazer, texreg, corrplot, haven, sjlabelled, psych, writexl, ggmosaic, DescTools, lme4, lmerTest, citr)
+pacman::p_load(kableExtra, pander, descr, expss,car, foreign,ggcorrplot, reghelper, openxlsx, summarytools, rmarkdown, sessioninfo)
+```
+<style type="text/css">
+
+h1.title {
+  font-size: 38px;
+  color: Black;
+  text-align: center;
+}
+h4.author { /* Header 4 - and the author and data headers use this too  */
+    font-size: 18px;
+  
+  color: Black;
+  text-align: center;
+}
+h4.date { /* Header 4 - and the author and data headers use this too  */
+  font-size: 18px;
+  
+  color: Black;
+  text-align: center;
+}
+</style>
+
+
+# Índice
+- [Introducción](#tit1)
+- [Objetivos e hipótesis](#tit2)
+- [Datos y metodología](#tit3)
+- [Referencias](#tit4)
+
+# **Introducción** {#tit1}
+Uno de los mayores desafíos en materia de políticas habitacionales en las últimas décadas ha sido la persistencia de familias que forman parte del déficit habitacional. El concepto actualmente hace referencia a una situación de saldo negativo entre el conjunto de viviendas de un territorio y las necesidades habitacionales de su población. La noción de déficit habitacional refleja un diagnóstico económico en que la oferta de vivienda se revela insuficiente en comparación a un cierto nivel de demanda observado. Cabe destacar que este volumen de demanda no hace referencia a una demanda de mercado donde se incluyan todas las preferencias de vivienda de cada individuo o grupo, sino a aquellos segmentos los cuales no pueden satisfacer por sus propios medios el acceso exclusivo a una vivienda (ONU-HABITAT, 2015). 
+En Chile, el concepto se construye de dos índices: por una parte, el déficit habitacional cuantitativo, correspondiente a la cantidad de unidades de vivienda necesarias para reemplazar una unidad en calidad irreparable, una unidad con hogares familiares allegados (allegamiento interno) y/o una unidad con núcleos allegados con independencia económica (allegamiento externo). Por otra parte, el déficit habitacional cualitativo, referido a la necesidad de mejoramiento o renovación material de una unidad de vivienda (Ministerio de Vivienda y Urbanismo, 2020).
+
+En América Latina y el Caribe, el Banco Interamericano de Desarrollo estimaba que habían 59 millones de personas viviendo en condiciones inadecuadas o en viviendas construidas con materiales precarios o carentes de servicios básicos (Banco Interamericano de Desarrollo, 2012).
+En Chile, a pesar de los esfuerzos en términos de producción de unidades habitacionales por parte del Ministerio de Vivivenda y Urbanismo, sólo se ha logrado reducir este déficit a un 30,6% entre los años 1996 y 2015 (Fundación Vivienda, 2017). Si bien existe esta reducción, para el año 2017 se vuelve a producir un aumento de un 13% con respecto al año 2015 (Cámara Chilena de la Construcción, 2019), debido principalmente a un incremento de la población en campamentos (Campos, 2017), población de origen migrante y el encarecimiento de los costos para desarrollos de proyectos habitacionales (Sanhueza y López, 2016; Fundación Vivienda, 2017). En términos concretos, existe un déficit cuantitativo de 497.615 viviendas y un déficit cualitativo en 1.303.484 viviendas, de un stock cercano a los 5,5 millones de viviendas, asemejando la situación a la de hace 20 años atrás (Ministerio de Vivienda y Urbanismo, 2020; Saavedra y Gatica, 2019).
+
+Desglosando el análisis de este fenómeno, el Área Metropolitana de Santiago (AMS) aparece como una de las zonas geográficas del país que más concentran viviendas en situación de déficit habitacional, con un 34,9% del total nacional, especialmente en las comunas periféricas y pericentrales de la ciudad. Los focos más relevantes son las comunas de Recoleta, Renca, Cerro Navia, Pedro Aguirre Cerda, Lo Espejo, Maipú, San Ramón, Puente Alto, La Granja y Peñalolén, acumulando más de un 50% del total del AMS. En las otras regiones del país, la situación es similar, sobre todo en Antofagasta, el gran Valparaíso y Concepción (Fundación Vivienda, 2017). Más específicamente, en las zonas urbanas del país predomina el déficit habitacional por componentes de allegamiento (cuantitativo), con un 84%, versus un 16% de déficit por precariedad material. Aparece como llamativo que en las zonas consideradas rurales el componente de allegamiento no sea numeroso. De hecho, en las zonas rurales se condensa un 32,6% del déficit por precariedad material (cualitativo) a nivel país.
+
+# **Algunos determinantes del déficit habitacional**
+## Políticas habitacionales
+
+Diversos estudios (Fundación Vivienda, 2017; López-Morales, 2013; Sabatini y Wormald, 2013) señalan como una de las principales hipótesis explicativas de esta concentración del déficit habitacional en determinados sectores de las ciudades del país corresponden a un fiel reflejo del desarrollo de las políticas habitacionales, especialmente aquellas generadas a partir de los años 80, en plena dictadura militar. Una política habitacional que no es capaz de generar stock a una velocidad mayor que la tasa de generación de nuevos requerimientos de vivienda no puede hacer mucho para aplacar dicho fenómeno, pero tampoco se debe pensar en la producción masiva de viviendas sin tomar en cuenta el estándar habitacional y urbano, lo que significaría repetir el panorama de las viviendas sociales en los años 90' (Rivera, 2012).
+
+Las políticas habitacionales han estado centradas principalmente en el aspecto más cuantitativo del fenómeno: la construcción de viviendas. El subsidio habitacional (voucher que subsidia la demanda en vez de la oferta) instaurado en la época de la dictadura de Pinochet ha tenido una gran productividad y ha sido mejorada por los gobiernos sucesivos. Los resultados de la política habitacional implementada fueron destacados a nivel internacional por su capacidad de reducción del déficit habitacional de la época que alcanza el 28,3%, al año 1990 (Ravinet, 2004). 
+Sin embargo, bajo este marco se han dejado de lado consideraciones relevantes como la calidad de las construcciones y el emplazamiento de estas. De hecho, ha sido habitual que la producción de las viviendas sociales sea en las periferias más alejadas y peor servidas de la ciudad. La edificación masiva de viviendas sociales trajo aparejada una serie de dificultades que repercuten tanto en la administración de los programas como en la población beneficiaria. Ejemplos de esto son comunas como Puente Alto, San Bernardo y Maipú en Santiago, las cuales fueron eventualmente favorecidas por programas habitacionales en los años 80 y 90, y que, en la actualidad, concentran un porcentaje relevante de déficit habitacional (Saavedra y Gatica, 2019).
+
+Desde finales de la década de los 90', la situación toma un giro: ya no es posible construir en las manchas urbanas alrededor de los centros edificados, por lo que comienzan a emplazarse en los espacios distantes de la ciudad, ya sea en medios rurales como en ciudades pequeñas en el radio conurbano. Si antes lo hacían en barrios ya asentados o cercanos a ellos, ahora se materializan alrededor de los núcleos poblados menores del anillo exterior del área metropolitana. En suma, bajo las restricciones y posibilidades derivadas del modelo de libre mercado impuesto desde mediado de la década de los ochenta y reforzado bajo la administraciones democráticas desde 1990 a la actualidad, los agentes privados tienden a localizar los complejos de viviendas sociales en aquellos lugares que presentan menor uso del suelo, de modo de aumentar las tasas de retorno y aumentar los márgenes de ganancia. Estos lugares son, por lo general, localizaciones periféricas dotadas de bajos niveles de accesibilidad y carencia de servicios y equipamientos urbanos (Hidalgo et al., 2007).
+
+##  Acción del sector privado
+
+Como se señaló previamente, uno de los factores que también inciden en el desarrollo del déficit habitacional , además de lo ya mencionado con el criterio de focalización de las políticas públicas habitacionales, dice relación con la acción de los entes privados en la construcción y expansión de la ciudad, con beneplácito del Estado (López-Morales, 2013; López-Morales y Ruiz-Tagle, 2014).A su vez, esto decanta en la capacidad de injerencia a nivel local de las municipalidades referidas a los planes de regulación y evaluación medioambiental. Cabe mencionar que casi la totalidad de los actuales municipios urbanos pericentrales chilenos se comportan como agentes de mercado “oferentes” de volúmenes atractivos de constructibilidad de suelo para la explotación intensiva en altura. A ese nivel, podría hablarse de una suerte de competencia entre los distintos municipios, incluso a costa del desarrollo de los otros municipios con nichos saturados. En ese punto, López-Morales (2013) señala que existe un urbanismo "pro empresarial" como el modelo de gestión urbana imperante en los municipios. 
+
+La literatura señala prácticas directas e intencionadas de devaluación del suelo. La compra de una sola parcela en una manzana entrega al comprador inmobiliario un poder mayor al momento de enfrentar las siguientes negociaciones con el resto de los propietarios (es regla general que las otras inmobiliarias se restarán de comprar predios en esa manzana). Esto es lo que en la jerga anglosajona se conoce como "blockbusting" o "pinchar la manzana" (ibid, 2013). Otra de estas prácticas, por parte de las ordenanzas públicas, consiste en "castigar" la pequeña inversión destinada a reparación o ampliación residencial pero también premiar la inversión a gran escala. En plano de los propietarios que se ven desplazados, incluso expulsados, de su espacio, ven con dificultades el reemplazo o compra de una nueva vivienda, ya que en ese marco, existe una baja capitalización de la renta del suelo, sobre todo considerando que el mercado inmobiliario en los últimos años apunta a precios cada vez más elevados.
+
+El Estado no sólo opera activamente en la producción de condiciones favorables para el mercado, sino que el mercado opera dentro del estado con sus lógicas de competitividad y su dialéctica de volatilidad versus anclaje espacial del capital. El Estado a nivel local promueve la expansión de las lógicas de mercado como reguladores de toda la vida urbana. Por otra parte, construye una sociedad y una urbe económicamente activa pero políticamente “desideologizada". Ancla capital volátil al lugar a través de una extrema focalización espacial en las instancias de regulación y planificación del territorio. Responde políticamente frente a la sociedad civil, allí donde no hay ventajas económicas ni sociales aseguradas. Finalmente, es especulativo en el diseño e implementación de sus políticas (López-Morales et al., 2012).
+
+Este margen de operación ha creado, principalmente en la región metropolitana pero también de manera crecientes en otras grandes urbes del país, tres situaciones que se desarrollan paralelamente: 1) un encarecimiento sostenido del precio de la vivienda en zonas pericentrales, junto con una reducción de su tamaño promedio, en una magnitud que supera las medias nacional y metropolitanas; 2) una ganancia creciente obtenida por desarrolladores en altura, en desmedro de un precio de suelo bajo y estático pagado a los propietarios al momento de la compraventa de suelo y 3) subvención indirecta estatal a agentes productores de mercado, a través de subsidio a la vivienda clase media (subsidio DS1, ex “Renovación Urbana”) con control de las ordenanzas de suelo y edificación, ambas condiciones necesarias para la captura privada de rentas de suelo (López-Morales, 2013).
+
+## Allegamiento como una 'respuesta' al déficit habitacional
+
+Frente a esta situación, donde el acceso a la vivienda se ha visto dificultado y las soluciones por parte del Estado parecen no dar abasto, se ha comenzado a considerar el allegamiento más que como una consecuencia directa 'negativa' una solución, racional y práctica ejecutada por las personas que se ven en este panorama (Urrutia, Jirón y Lagos, 2011). 
+El allegamiento corresponde a la estrategia utilizada por los hogares y núcleos familiares para solucionar la falta de vivienda, compartiendo una vivienda con otro hogar o núcleo. Se divide en dos tipos de allegamientos: externo e interno. Por una parte, el allegamiento externo se presenta cuando hay más de un hogar en la vivienda y poseen presupuestos independientes. Por la otra, el allegamiento interno se vincula a "un núcleo al interior del hogar, el cual se constituye en el núcleo secundario o núcleo allegado. Estos núcleos secundarios son una o más familias que no han logrado aún su autonomía económica y dependen del presupuesto de alimentación y de la vivienda del hogar que los acoge" (Saavedra y Gatica, 2019, p.51). De acuerdo a Prieto (2001) el allegamiento interno puede responder a la falta de autonomía económica como a la necesidad de establecer estrategias de sobrevivencia ligadas a problemas de vulnerabilidad para residir de forma autónoma como la seguridad o la necesidad de cuidados, entre otras causas (ibid). En ese sentido, existen motivaciones tanto económicas como domésticas, sobre todo en lo que respecta al allegamiento interno. Es bastante usual que las familias que aparecen como núcleos secundarios tengan alguna relación de parentesco con la familia principal, por lo que existen más facilidades, por ejemplo, en el cuidado de niños y adultos mayores y tareas domésticas en general, cuestiones que en familias jóvenes económicamente activas aparecen como de imperiosa necesidad mantener controladas (Urrutia y Cáceres, 2020). En ese sentido, la presencia de redes de apoyo aparecen como un factor relevante a la hora de mantenerse dentro de una misma vivienda como núcleo allegado independiente que esta se ubique en un sector periférico que no goza de las virtudes del equipamiento, infraestructura y servicios que ofrece el centro y pericentro de la ciudad.
+Sin embargo, pese a que esta visión más 'positiva' del allegamiento, entendida y conceptualizada también como "co-residencia" o "co-habitación", tenga una mayor presencia en los estudios más recientes e incluso se muestren como sustrato para políticas públicas bajo ese marco, es cierto también que se dejan de lado otras consideraciones asociadas a la implementación de las políticas habitacionales en los años 80 y profundizadas en las décadas siguientes, como la poca movilidad social en términos de vivienda (Saavedra y Gatica, 2019), agravada por los altos precios del mercado inmobiliario, frustrando las opciones de independencia para esas familias y, en definitiva, concentrando un mayor déficit habitacional por allegamiento.
+
+## Panorama migratorio en Chile (2015-)
+
+En los últimos años, Chile ha sufrido una transformación en sus flujos migratorios que lo ha llevado a pasar de ser un éxodo de población a convertirse en un país receptor de migrantes, especialmente de migraciones intra-regionales (del mismo continente). Sin embargo, esta transformación en sus flujos migratorios no ha ido de la mano con una renovación de enfoque en sus políticas de regulación para migrantes, más aún considerando que existe un consenso generalizado en la literatura sobre la desactualización e ineficacia de la política de regularización migratoria del país (Arís et al., 2018; Fundación Colunga, 2018; De las Heras, 2016; Figueroa et al., 2018). En consecuencia de esta discordancia, la población migrante se ha visto enfrentada a una seguidilla de barreras que terminan por situarlos en una condición de precariedad y de diversas desigualdades en distintos ámbitos de su vida (PNUD, 2017).
+Cabe mencionarse que la población migrante especialmente afectada por estas situaciones está referida a lo que señala Tijoux y Mandiola (2015) como población migrante marginada, la cual se encuentra precisamente al margen de lo social al llegar a su destino. Con esto, la calificación de migrante se complejiza y hace más ambigua, generando una distinción entre quienes pueden mantenerse sin mayores dificultades debido a sus competencias y quienes buscan mejorar sus condiciones de vida, viéndose normalmente expuestos a situaciones de vulnerabilidad.
+Basándose solamente en la cantidad de visas otorgadas, en el periodo 2015-2019 se han otorgado más de 1 millón de visas. Considerando las estimaciones hechas por el Departamento de Extranjería y Migración (DEM), hay un total de 1.490.000 de personas extranjeras, concentrándose el 60% de ellas en la región metropolitana y el norte del país. Los principales colectivos provienen de Venezuela (30,5%), Perú (15,8%) y Haití (12,5%) (Departamento de Extranjería y Migración, 2020); es decir, migración intrarregional. En términos porcentuales, del total del déficit habitacional cuantitativo (497.615 viviendas), un 13,3% es en familias migrantes, especialmente en el norte del país, en la región de Tarapacá y de Antofagasta, en donde aproximadamente un 32% de los requerimientos habitacionales de esas regiones son para familias migrantes (Fundación Vivienda, 2017), a diferencia de lo que sucede en la región metropolitana, donde los requerimientos habitacionales llegan a un 21,2%, correspondiente a familias migrantes.
+Descomponiendo el déficit habitacional cuantitativo, existen 143.196 viviendas requeridas en términos de hogares allegados (allegamiento externo), 77.526 viviendas requeridas por núcleos hacinados (allegamiento interno) y 129.267 viviendas irrecuperables en materialidad.
+De estos contingentes migrantes, es relevante señalar un porcentaje importante de los hogares (48%) tiene jefatura de hogar femenina (Departamento de Extranjería y Migración, 2020). Un 23,6% del requerimiento de vivienda por componentes cuantitativos (117.439 viviendas) tiene presencia de jefatura de hogar femenina.
+La estimación del déficit habitacional cuantitativo, que considera un 13% del total nacional en familias migrantes devela un fuerte crecimiento del flujo migratorio contintental, consolidando la presencia de colectivos venezolanos y haitianos principalmente (ibid). Esta dinámica migratoria pone en boga la necesidad de explorar en distintas soluciones que no sólo consideren la vivienda definitiva. En la movilidad migratoria es posible que lo definitivo no siempre sea lo esencial.
+
+Considerando estos antecedentes, la presente investigación tiene por pretensión indagar en los principales factores determinates del allegamiento en familias migrantes del país. Se tiene por consideración algunas variables sociodemográficas son las que más inciden en el allegamiento en familias migrantes que llegan a Chile. Una de ellas sería precisamente su condición de migrante, expresada en la nacionalidad, entiendiendo que hay ciertas nacionalidades que se pueden catalogar como parte de la "población migrante marginada", para diferenciarla de población migrante con mayores capacidades socioeconómicas para mantenerse en el país.
+Por otra parte, se hace hecho mención a la variable sexo del jefe(a) de hogar como un determinante relevante en la situación de allegamiento, incluso sin distinguir entre chilenos(as) y migrantes.
+Se ha hecho mención a la incidencia que han tenido las distintas municipalidades en la gestión de las planificaciones urbanas/territoriales, por lo que también se pretende añadir un componente contextual al estudio del allegamiento. 
+
+Con esto, se han gestado las siguientes preguntas que guiarán el trabajo de investigación en su conjunto: ¿Cuáles son los principales determinantes de la situación de allegamiento en las familias migrantes en Chile?
+¿Cuáles son las principales motivaciones de las familias migrantes para mantenerse en situación de allegamiento?
+
+Bajo esta lógica, y habiendo puesto la pregunta en cuestión, la investigación pretende aportar, en primer lugar, con nueva evidencia empírica en torno a los determinantes del allegamiento, indagando cuáles tienen más peso en el aumento del déficit habitacional, y particularmente por componentes de allegamiento, en familias migrantes, considerando el gran flujo migratorio que se ha producido durante este último periodo (2015-). Por otra parte, se ha mencionado que el allegamiento también aparece como una estrategia frente a las dificultades para adquirir una vivienda exclusiva, independiente de la nacionalidad de la persona. Es por ello que también se busca indagar en las motivaciones de las familias migrantes para mantenerse en condición de allegados, pudiendo deberse a cuestiones económicas, tradiciones, ventajas en labores de cuidado/domésticas, etc.
+En segundo lugar, siendo un aporte más novedoso, es revisar y trabajar en torno a las metodologías e instrumentos que miden el déficit habitacional. Esto debido a que las mismas fuentes institucionales (Ministerio de Vivienda y Urbanismo, 2020) mencionan que, por ejemplo, debido a que el Censo 2017 no incluía todas las variables que tradicionalmente se incluyen en el índice, han tenido que ajustarlo para crear su instrumento. En base a esto, señalan que su trabajo no incorpora las variables relacionadas al índice de saneamiento (sistema de distribución de agua y de eliminación de excretas), pero que no influyen en el cálculo del déficit habitacional cuantitativo, ya que estas pertenecen al déficit habitacional cualitativo (referente a la materialidad de las viviendas),  medido por el Índice de Calidad Global de la Vivienda (ICGV). Por ello, trabajar alrededor de estos instrumentos permitirá incluir, o retirar eventualmente, variables que inciden en la construcción del índice y el cálculo del déficit habitacional, haciendo más robusto el instrumento.
+
+# **Objetivos e hipótesis**{#tit2}
+## **I. Objetivos:**
+### **Objetivo general:**
+- Determinar los principales determinantes sociales del allegamiento en familias migrantes en Chile.
+- Explorar las principales motivaciones de las familias migrantes para mantenerse en situación de allegamiento en Chile.
+
+#### **Objetivos específicos:**
+- Determinar el efecto de la nacionalidad en la situación de allegamiento en familias migrantes en Chile.
+- Determinar el efecto del sexo en la situación de allegamiento en familias migrantes en Chile.
+- Determinar el efecto del año de llegada de la persona migrante en la situación de allegamiento.
+
+## **II. Hipótesis**
+### **Hipótesis general:**
+La principal hipótesis del trabajo de investigación señala que, precisamente, la condición de migrante expresada en su nacionalidad es un factor que incide en la situación de allegamiento. Específicamente, los migrantes que han sido catalogados como "población migrante marginada" son quienes tienen más probabilidades de encontrarse en situación de allegamiento. 
+
+La hipótesis relacionada con el segundo objetivo general indica que las principales motivaciones de las familias migrantes para mantenerese en condición de allegadas son económicas, debido a las dificultades propias del mercado inmobiliario para conseguir una vivienda exclusiva.
+
+#### **Hipótesis específicas:**
+La población migrante marginada intra-regional tendrá más probabilidades de encontrarse en situación de allegamiento que la población migrante proveniente de otros continentes (extra-regional).
+Las viviendas con jefatura de hogar femenina tendrán más probabilidades de encontrarse en situación de allegamiento.
+El año de llegada de la persona migrante incide en la situación de allegamiento. Mientras más reciente sea, mayor será la probabilidad de encontrarse en situación de allegamiento.
+
+# **Datos y metodología** {#tit3}
+
+Para llevar a cabo esta investigación, se utilizarán datos de la Encuesta de Caracterización Socioeconómica Nacional (CASEN) correspondiente al año 2017. Esta es desarrollada de manera bienal o trienal por el Ministerio de Desarrollo Social. El diseño muestral de la encuesta es probabilístico, estratificado por conglomerados y en múltiples etapas. El diseño muestral es de 69.816 viviendas a nivel nacional, utilizando una sola muestra representativa a nivel nacional y regional.
+
+En primer lugar, la variable dependiente del estudio estará basada en los indicadores de allegamiento interno (variable iai) y externo (variable iae) que entrega la encuesta CASEN. 
+El allegamiento interno o de núcleos allegados hacinados "corresponde a núcleos familiares adicionales al núcleo principal, pero que pertenecen a un mismo hogar, y por tanto comparten un presupuesto en alimentación" (Ministerio de Vivienda y Urbanismo, 2020, p. 3). Debe existir una independencia económica del núcleo allegado o secundario respecto del núcleo principal, la cual les permitiría optar a una solución habitacional independiente.
+El allegamiento externo “corresponden a dos o más grupos de personas que no comparten
+presupuesto de alimentación y que comparten una misma vivienda, es decir, se define como el
+excedente de hogares en relación al total de viviendas particulares ocupadas con moradores
+presentes que contestan” (MINVU, 2017, p. 10 en Ministerio de Vivienda y Urbanismo, 2020, p. 3).
+Estos dos indicadores son parte del cálculo general del déficit habitacional cuantitativo, al cual se le suma el requerimiento de viviendas irrecuperables en materialidad. Este último no será incluido dentro de la construcción de la variable dependiente, debido a que se aleja de las consideraciones referidas a allegamiento.
+
+Por otro lado, como una de las principales variables independiente se considerará, en primer lugar la variable nacionalidad (r1a, r1a_esp) como muestra de la condición migrante. De ella, se desprenden 5,914 casos sin distinguir el país de origen. Como ha sido señalado en un comienzo, estará centrado principalmente en las personas migrantes de países de la región sudamericana y centroamérica y el caribe, los cuales se pueden catalogar como "población migrante marginada", debido a sus características socioculturales.
+Además, se tendrán en consideración algunas variables sociodemográficas de control. Las más relevantes que ya han sido mencionadas como principales determinantes son sexo (sexo) y año de llegada al país (r1c_año). Para robustecer el análisis, se seleccionaron a su vez otras variables:
+Edad (edad)
+Nivel educacional en grado alcanzado o actual (educ)
+Ingresos (ytot). Se selecciona esta variable y no la variable (y1) ya que tiene una mayor tasa de respuesta y menor tasa de blancos.
+
+En lo que respecta a la caracterización material de las viviendas, se han seleccionado las siguientes variables, principalmente para dar una primera vista al panorama: 
+
+Tipo de casa (v1). Referida al tipo de casa que ocupa el entrevistado (casa pareada, no pareada, edificio con o sin ascensor, mediagua, vivienda tradicional, etc.)
+
+Metros cuadrados de la vivienda (v12). Se indaga la cantidad de metros cuadrados de la vivienda, sin considerar jardines, terrazas abiertas, sótanos o desvanes no habitables.
+
+Sistema de distribución de agua en la vivienda (v22). Considera sistemas con llaves dentro de la vivienda, dentro del sitio pero fuera de la vivienda y no tiene sistema de distribución (el agua debe ser traída desde afuera, como por camiones aljibe).
+
+Sistema de eliminación de excretas (v23). Considera distintos sistemas de eliminación de excretas como por W.C conectados al alcantarillado y red pública, fosas sépticas, pozos negros, acequias o sin sistema de eliminación de excretas, etc.
+
+Disposición de energía eléctrica en la vivienda (v24). Indica si la vivienda dispone o no de energía eléctrica y bajo qué régimen. Puede ser de la red pública con o sin medidor, con un generador propio (tipo energía solar o eólica), etc.
+
+Cantidad de dormitorios (v27a).
+
+Cantidad de baños (v27b).
+
+Para indagar en el segundo objetivo de esta investigación, se consideraron las variables (v28) que por la cantidad de hogares en la vivienda y la variable (v33) que pregunta por la cantidad de núcleos en el hogar. En un primer plano, estas variables (v28 y v33) entregarán una caracterización de las viviendas. De la variable (v28) se desprenden dos variables más, dependiendo si existe más de un hogar en la vivienda. La variable (v31) indaga en las principales razones para que se comparta la vivienda con otro(s) hogar(es). Por otra parte, la variable (v32) indica si el hogar en cuestión se encuentra en algún proceso para obtener una vivienda exclusiva, por ejemplo, postulando a subsidios de compra/arriendo.
+Del mismo modo, de la variable (v33) se desprenden dos preguntas similares, pero centradas en los núcleos por hogar. La variable (v34) consulta por las razones para que los núcleos en un hogar compartan la vivienda. La variable (v35) señala si el núcleo en cuestión se encuentra en algún proceso para obtener una vivienda exclusiva. 
+De este modo, "el objetivo de estas preguntas es lograr una mejor caracterización del allegamiento. Para ello es necesario profundizar en la definición y operacionalización de la demanda habitacional, considerando las razones que tienen los núcleos para compartir vivienda" (Ministerio de Vivienda y Urbanismo, 2018, p. 224)
+
+Para tomar en cuenta el factor contextual, se incluirá como variable clúster la comuna. Pese a que esta variable no tiene representatividad en todas las comunas, es la que tiene el N mayor utilizable para el análisis. Como ha sido mencionado anteriormente, el análisis estará centrado en las comunas de regiones donde se localiza la mayor parte de la población migrante, es decir, además de la región metropolitana, en comunas de las regiones del norte del país (Arica y Parinacota, Tarapacá y Antofagasta). Según lo señalado en los antecedentes, estas son las regiones del país con mayor demanda habitacional, especialmente en lo que responde a componentes por déficit cuantitativo (allegamiento+materialidad irrecuperable).
+
+En lo que corresponde a las técnicas de análisis de los datos, además de los correspondientes análisis descriptivos uni y bivariados, se pretende la construcción de un modelo de regresión considerando el allegamiento interno y externo como variable dependiente, expresados en los indicadores de allegamiento explicitados previamente. Ambas variables tienen como posibles respuestas 'sí' y 'no', por lo que la medición se tomará en probabilidades de encontrarse en situación de allegamiento.
+Sumado a esto, se tomarán en cuenta algunas de las variables sociodemográficas como principales determinantes de la situación de allegamiento en personas migrantes, a saber, nacionalidad, sexo y año de llegada. Se añadirán otras variables de control como la edad, el nivel educacional y los ingresos.
+
+# **Referencias** {#tit4}
+
+Arís, M., Meza, M. J., & Valenzuela, P. (2018). Arís, Manuel; Meza, María José; Valenzuela, Pablo. Estudio De análisis comparativo regional de las regulaciones migratorias en América Latina. Documento de referencia N39. Diciembre 2018 (60 páginas).
+
+Cámara Chilena de la Construcción. (2019). Déficit habitacional: un desafío pendiente.
+
+Campos, K. (2017). Inmigración en campamentos, percepciones sobre la vida en asentamientos precarios de Copiapó. Revista CIS, N° 22, pp.109-129.
+
+De las Heras, M. J. (2016). Los migrantes como sujetos del sistema de protección social en Chile Centro UC Políticas Públicas. In Centro UC Políticas Públicas. https://politicaspublicas.uc.cl/publicacion/serie-temas-de-la-agenda/los-migrantes-como-sujetos-del-sistema-de-proteccion-social-en-chile/.
+
+Departamento de Extranjería y Migración. (2020). Estimación de personas extranjeras residentes habituales en Chile al 31 de diciembre de 2019. Informe técnico: desagregación regional y comunal.
+
+Figueroa, R., Parada, C., & Mardones, F. (2018). Migraciones en Chile: Tres perspectivas de análisis. In Santiago: Biblioteca del Congreso Nacional de Chile.
+
+Fundación Colunga. (2018). Situación habitacional de extranjeros en Chile: los principales hallazgos de la investigación del Servicio Jesuita a Migrantes y Colunga. In Fundación Colunga.
+
+Fundación Vivienda. (2017). Déficit habitacional cuantitativo. Informe 4 Déficit habitacional y Censo.
+
+García de Freitas et. al. (2013). Chile: Subsidios, crédito y déficit habitacional. Revista CEPAL N°110. Agosto 2013. pp. 199-221.
+
+Hidalgo, R. et al. (2007). El emplazamiento periférico de la vivienda social en el Área Metropolitana de Santiago de Chile: consecuencias socio espaciales y sugerencias para modificar los criterios actuales de localización. Revista Electrónica de Geografía y Ciencias Sociales. Cuadernos Críticos de Geografía Humana. Vol. XI, núm. 245 (27), 1 de agosto de 2007. Universidad de Barcelona.
+
+López-Morales, E. (2013). Gentrifi cación en Chile: aportes conceptuales y evidencias para una discusión necesaria. Revista de Geografía Norte Grande, 56: 31-52 (2013).
+
+López-Morales, E. et al. (2012). Urbanismo proempresarial en Chile: políticas y planificación de la producción
+residencial en altur a en el pericentro del Gran Santiago. Revista INVI: Nº 76. noviembre 2012. Volumen Nº 27: 75-114.
+
+López-Morales, E. y Ruiz-Tagle, J. (2014). El estudio de la segregación residencial en Santiago de Chile: revisión crítica
+de algunos problemas metodológicos y conceptuales. Revista EURE: vol 40, n° 119, enero 2014, pp. 25-48.
+
+Ministerio de Vivienda y Urbanismo. (2018). Manual de trabajo de campo encuesta CASEN. Centro UC Encuesta y Estudios Longitudinales.
+
+Ministerio de Vivienda y Urbanismo. (2020). Metodología de cálculo del déficit habitacional cuantitativo ajustada al Censo 2017. santiago: Centro de Estudios de Ciudad y Territorio.
+
+Prieto, B. (2001). Determinantes de la situación de allegamiento interno en las familias de bajos ingresos (Tesis de postgrado). Pontificia Universidad Católica de Chile, Santiago, Chile.
+
+Ravinet De La Fuente, J. (2004). La Política Habitacional Chilena: alternativas de acceso a la vivienda para las familias más pobres. Revista INVI, 19(50), 130-145.
+
+Rivera, A. (2012). Historia de la política habitacional en el área Metropolitana de Santiago. Revista CIS, N° 16, pp.27-44.
+
+Ruiz-Tagle, J. (2016). La segregación y la integración en la sociología urbana: revisión de enfoques y aproximaciones críticas para las políticas públicas. Revista INVI: 31(87) : 9-57, agosto 2016.
+
+Saavedra, V., y Gatica, P. (2019). Las redes de apoyo familiar: motivación económica y doméstica para allegarse en zonas periféricas de Santiago de Chile. Investigaciones Geográficas, 57, 49-62.
+
+Sabatini, F. y Wormald, G. (2013). Segregación de la vivienda social: reducción de oportunidades, pérdida de cohesión. En F. Sabatini, G. Wormald y A. Rasse (Eds.), Segregación de la vivienda social: ocho conjuntos en Santiago, Concepción y Talca (págs. 12-31). Santiago, Chile: Colección Estudios Urbanos UC. 
+
+Sanhueza, C. y López, E. (2016). Metodología de caculo de la renta del suelo mediante análisis del impacto de cambios regulatorios y en infraestructura: caso Santiago-Chile. Congreso Internacional Consteted_Cities, Madrid, España.
+
+Tijoux, M. E., y Mandiola, S. (2015). Aproximaciones teóricas para el estudio de procesos de racialización y sexualización en los fenómenos migratorios de Chile. Polis, 14(42), 247–275. https://doi.org/10.4067/S0718-65682015000300012
+
+Urrutia Muñoz, J. y Cáceres Ledesma, M. (2020). Estrategias de co–residencia en el área pericentral de Santiago de Chile. Revista 180, 45, (98-111). http://dx.doi.org/10.32995/rev180.Num–45.(2020).art–697
+DOI: http://dx.doi.org/10.32995/rev180.Num–45.(2020).art–697
+
+
+=======
 ---
 title: "Determinantes sociales del allegamiento en familias migrantes en Chile"
 author: "Diego Esturillo Sáez"
@@ -205,3 +438,4 @@ Urrutia Muñoz, J. y Cáceres Ledesma, M. (2020). Estrategias de co–residencia
 DOI: http://dx.doi.org/10.32995/rev180.Num–45.(2020).art–697
 
 
+>>>>>>> e438626262ea0f02ec88e8b4859c166894a3d95a
